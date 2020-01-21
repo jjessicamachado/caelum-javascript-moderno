@@ -38,7 +38,7 @@
 .cartao-conteudo {
 	white-space: pre-line;
 	max-height: 400px;
-	overflow: hidden;
+	overflow: hidden !important;
 	font-size: 1em;
 }
 
