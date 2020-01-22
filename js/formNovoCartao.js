@@ -29,7 +29,7 @@ form.addEventListener('submit', function(e) {
           </button>
 
           <input type="radio" name="corDoCartao${numeroDoCartao}" value="#EBEF40" id="corPadrão-cartao${numeroDoCartao}" class="opcoesDoCartao-radioTipo" checked>
-          <label for="corPadrão-cartao3" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #EBEF40;" tabindex="0">
+          <label for="corPadrão-cartao${numeroDoCartao}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #EBEF40;" tabindex="0">
             Padrão
           </label>
 
@@ -51,6 +51,37 @@ form.addEventListener('submit', function(e) {
         <p class="cartao-conteudo" contenteditable tabindex="0">${conteudo}</p>
       </article>`)
       $('.mural').append(cartao)
+
+      cartao.on('focusin', function() {
+        cartao.addClass('cartao--focado');
+      })
+
+      cartao.on('focusout', function() {
+          cartao.removeClass('cartao--focado');
+      })
+
+      cartao.on('click', function(e) {
+          if (e.target.classList.contains('opcoesDoCartao-remove')) {
+              cartao.addClass('cartao--some')
+
+              cartao.on('transitionend', function() {
+                  cartao.remove()
+              })
+          }
+      })
+
+      cartao.on('keydown', function(e) {
+          if(e.target.classList.contains('opcoesDoCartao-opcao') && (e.key === 'Enter')) {
+              e.target.click()
+          }
+      })
+
+      cartao.on('change', function(e) {
+          if (e.target.classList.contains('opcoesDoCartao-radioTipo')) {
+            cartao.css("background-color", e.target.value)
+          }
+      })
+
     }
     
 })
