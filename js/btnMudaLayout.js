@@ -1,5 +1,5 @@
 const btn = document.querySelector('#btnMudaLayout');
-const mural = document.querySelector('.mural');
+const muda = document.querySelector('.mural');
 
 function mudaTexto() {
     if(btn.textContent == 'Linhas') {
@@ -10,18 +10,18 @@ function mudaTexto() {
 }
 
 function mudaLayout() {
-    if(mural.classList.contains('mural--linha')) {
-        mural.classList.remove('mural--linha');
+    if(muda.classList.contains('mural--linha')) {
+        muda.classList.remove('mural--linha');
     } else {
-        mural.classList.add('mural--linha');
+        muda.classList.add('mural--linha');
     }
 }
 
 function mudaLayoutToggle() {
-    mural.classList.toggle('mural--linha');
+    muda.classList.toggle('mural--linha');
 }
 
 btn.addEventListener('click', mudaTexto);
 btn.addEventListener('click', mudaLayout);
 btn.classList.remove('no-js');
-mural.classList.remove('no-js');
+muda.classList.remove('no-js');

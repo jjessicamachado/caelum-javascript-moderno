@@ -30,4 +30,5 @@ for (let i = 0; i < cartao.length; i++) {
             })
         }
     })
+    
 }
