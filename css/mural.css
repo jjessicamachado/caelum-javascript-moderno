@@ -23,7 +23,7 @@
 
 @media (min-width: 900px){
 	.mural {
-		align-items: center;
+		align-items: stretch;
 		font-size: 1.3rem;
 	}
 }

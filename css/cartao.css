@@ -9,6 +9,7 @@
 	background: #EBEF40;
 	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
 	transition: transform .2s ease-in;
+	flex: 1;
 }
 
 .cartao--some {
@@ -37,7 +38,7 @@
 
 .cartao-conteudo {
 	white-space: pre-line;
-	max-height: 400px;
+/*	max-height: 400px; */
 	overflow: hidden !important;
 	font-size: 1em;
 }

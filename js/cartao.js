@@ -7,4 +7,16 @@ for (let i = 0; i < cartao.length; i++) {
     cartao[i].addEventListener('focusout', function() {
         cartao[i].classList.remove('cartao--focado');
     })
+
+    cartao[i].addEventListener('change', function (e) {
+        if (e.target.classList.contains('opcoesDoCartao-radioTipo')) {
+            cartao[i].style.backgroundColor = e.target.value;
+        }
+    })
+
+    cartao[i].addEventListener('keydown', function (e) {
+        if (e.target.classList.contains('opcoesDoCartao-opcao') && (e.key === 'Enter')) {
+            e.target.click()
+        }
+    })
 }
