@@ -1,7 +1,9 @@
+(function() { 
+'use strict'    // permite olhar de forma mais rigida o documento (consegue ver as var que consegue expor e nao)
 const mural = document.querySelector('.mural');
 let numero = 0
 
-function adicionarCartao(cartaoObj) {
+window.adicionarCartao = function adicionarCartao(cartaoObj) { //O Window permite que a funçao seja acessada por outros arquivos (expoe) mesmo que esteja dentro de um IF, como se fosse uma variavel
     numero++
     const conteudoDoCartao = cartaoObj.conteudo
     const cor = cartaoObj.cor
@@ -66,3 +68,4 @@ function adicionarCartao(cartaoObj) {
     }
   })
 }
+}) ();
