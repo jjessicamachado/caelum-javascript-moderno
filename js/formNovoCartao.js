@@ -1,28 +1,30 @@
 const form = document.querySelector('.formNovoCartao');
 let numeroDoCartao = 0;
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const textarea = form.querySelector('.formNovoCartao-conteudo')
-    if(textarea.value.trim().length === 0) {
-        const msg = document.createElement('div')
-        msg.classList.add('formNovoCartao-msg')
-        msg.textContent = "Deu xabú"
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const textarea = form.querySelector('.formNovoCartao-conteudo')
+  
+  if (textarea.value.trim().length === 0) {
+    const msg = document.createElement('div')
+    msg.classList.add('formNovoCartao-msg')
+    msg.textContent = "Deu xabú"
 
-        //aqui ele ainda nao foi inserido no DOM
+    //aqui ele ainda nao foi inserido no DOM
 
-        const btnSubmit = document.querySelector('.formNovoCartao-salvar')
+    const btnSubmit = document.querySelector('.formNovoCartao-salvar')
 
-        form.addEventListener('animationend', function(e) { //animationend identifica o elemento em animaçao
-            e.target.remove()
-        })
+    form.addEventListener('animationend', function (e) { //animationend identifica o elemento em animaçao
+      e.target.remove()
+    })
 
-        form.insertBefore(msg, btnSubmit) //a mensagem tem q ser chamada antes do btnSubmit, aqui ele insere no DOM
-    } else {
-        numeroDoCartao++
-        const conteudo = textarea.value
+    form.insertBefore(msg, btnSubmit) //a mensagem tem q ser chamada antes do btnSubmit, aqui ele insere no DOM
 
-        const cartao = $(`<article id="cartao_${numeroDoCartao}" class="cartao" tabindex="0">
+  } else {
+    numeroDoCartao++
+    const conteudo = textarea.value
+
+    const cartao = $(`<article id="cartao_${numeroDoCartao}" class="cartao" tabindex="0">
         <div class="opcoesDoCartao">
           <button class="opcoesDoCartao-remove opcoesDoCartao-opcao" tabindex="0">
             <svg><use xlink:href="#iconeRemover"></use></svg>
@@ -50,40 +52,43 @@ form.addEventListener('submit', function(e) {
         </div>
         <p class="cartao-conteudo" contenteditable tabindex="0">${conteudo}</p>
       </article>`)
-      $('.mural').append(cartao)
+    $('.mural').append(cartao)
 
-      cartao.on('focusin', function() {
-        cartao.addClass('cartao--focado');
-      })
+    cartao.on('focusin', function () {
+      cartao.addClass('cartao--focado');
+    })
 
-      cartao.on('focusout', function() {
-          cartao.removeClass('cartao--focado');
-      })
+    cartao.on('focusout', function () {
+      cartao.removeClass('cartao--focado');
+    })
 
-      cartao.on('click', function(e) {
-          if (e.target.classList.contains('opcoesDoCartao-remove')) {
-              cartao.addClass('cartao--some')
+    cartao.on('click', function (e) {
+      if (e.target.classList.contains('opcoesDoCartao-remove')) {
+        cartao.addClass('cartao--some')
 
-              cartao.on('transitionend', function() {
-                  cartao.remove()
-              })
-          }
-      })
+        cartao.on('transitionend', function () {
+          cartao.remove()
+        })
+      }
+    })
 
-      cartao.on('keydown', function(e) {
-          if(e.target.classList.contains('opcoesDoCartao-opcao') && (e.key === 'Enter')) {
-              e.target.click()
-          }
-      })
+    cartao.on('keydown', function (e) {
+      if (e.target.classList.contains('opcoesDoCartao-opcao') && (e.key === 'Enter')) {
+        e.target.click()
+      }
+    })
 
-      cartao.on('change', function(e) {
-          if (e.target.classList.contains('opcoesDoCartao-radioTipo')) {
-            cartao.css("background-color", e.target.value)
-          }
-      })
+    cartao.on('change', function (e) {
+      if (e.target.classList.contains('opcoesDoCartao-radioTipo')) {
+        cartao.css("background-color", e.target.value)
+      }
+    })
 
-    }
-    
+   textarea.value = ""
+
+
+  }
+
 })
 
 form.classList.remove('no-js');
