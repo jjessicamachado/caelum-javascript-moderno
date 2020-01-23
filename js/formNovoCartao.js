@@ -4,7 +4,7 @@ let numeroDoCartao = 0;
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   const textarea = form.querySelector('.formNovoCartao-conteudo')
-  
+
   if (textarea.value.trim().length === 0) {
     const msg = document.createElement('div')
     msg.classList.add('formNovoCartao-msg')
@@ -12,7 +12,12 @@ form.addEventListener('submit', function (e) {
 
     //aqui ele ainda nao foi inserido no DOM
 
-    const btnSubmit = document.querySelector('.formNovoCartao-salvar')
+    const btnSubmit = document.querySelector('.formNovoCartao-salvar') 
+    
+    form.on('submit', function () {
+      const textarea = form.querySelector('.formNovoCartao-conteudo')
+      textarea.value = " "
+    })
 
     form.addEventListener('animationend', function (e) { //animationend identifica o elemento em animaçao
       e.target.remove()
@@ -85,7 +90,6 @@ form.addEventListener('submit', function (e) {
     })
 
    textarea.value = ""
-
 
   }
 
