@@ -68,4 +68,18 @@ window.adicionarCartao = function adicionarCartao(cartaoObj) { //O Window permit
     }
   })
 }
+
+$.ajax({
+  url: 'https://ceep.herokuapp.com/cartoes/carregar',
+  method: 'GET',
+  data: {usuario: 'Jessica'},
+  dataType: 'jsonp',
+  success: function(objeto) {
+    const cartoes = objeto.cartoes
+    cartoes.forEach(function (cartao) {
+      adicionarCartao(cartao)
+    })
+  }
+})
+
 }) ();
