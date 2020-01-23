@@ -1,36 +1,36 @@
 (function() { 
 'use strict'    // permite olhar de forma mais rigida o documento (consegue ver as var que consegue expor e nao)
 const mural = document.querySelector('.mural');
-let numero = 0
+let numeroDoCartao = 0
 
 window.adicionarCartao = function adicionarCartao(cartaoObj) { //O Window permite que a funçao seja acessada por outros arquivos (expoe) mesmo que esteja dentro de um IF, como se fosse uma variavel
-    numero++
+    numeroDoCartao++
     const conteudoDoCartao = cartaoObj.conteudo
     const cor = cartaoObj.cor
 
-    const cartao = $(`<article id="cartao_${numero}" class="cartao" tabindex="0" style="background-color: ${cor}">
+    const cartao = $(`<article id="cartao_${numeroDoCartao}" class="cartao" tabindex="0" style="background-color: ${cor}">
     <div class="opcoesDoCartao">
       <button class="opcoesDoCartao-remove opcoesDoCartao-opcao" tabindex="0">
         <svg><use xlink:href="#iconeRemover"></use></svg>
       </button>
 
-      <input type="radio" name="corDoCartao${numero}" value="#EBEF40" id="corPadrão-cartao${numero}" class="opcoesDoCartao-radioTipo" checked>
-      <label for="corPadrão-cartao${numero}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #EBEF40;" tabindex="0">
+      <input type="radio" name="corDoCartao${numeroDoCartao}" value="#EBEF40" id="corPadrão-cartao${numeroDoCartao}" class="opcoesDoCartao-radioTipo">
+      <label for="corPadrão-cartao${numeroDoCartao}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #EBEF40;" tabindex="0">
         Padrão
       </label>
 
-      <input type="radio" name="corDoCartao${numero}" value="#F05450" id="corImportante-cartao${numero}" class="opcoesDoCartao-radioTipo">
-      <label for="corImportante-cartao${numero}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #F05450;" tabindex="0">
+      <input type="radio" name="corDoCartao${numeroDoCartao}" value="#F05450" id="corImportante-cartao${numeroDoCartao}" class="opcoesDoCartao-radioTipo">
+      <label for="corImportante-cartao${numeroDoCartao}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #F05450;" tabindex="0">
         Importante
       </label>
 
-      <input type="radio" name="corDoCartao${numero}" value="#92C4EC" id="corTarefa-cartao${numero}" class="opcoesDoCartao-radioTipo">
-      <label for="corTarefa-cartao${numero}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #92C4EC;" tabindex="0">
+      <input type="radio" name="corDoCartao${numeroDoCartao}" value="#92C4EC" id="corTarefa-cartao${numeroDoCartao}" class="opcoesDoCartao-radioTipo">
+      <label for="corTarefa-cartao${numeroDoCartao}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #92C4EC;" tabindex="0">
         Tarefa
       </label>
 
-      <input type="radio" name="corDoCartao${numero}" value="#76EF40" id="corInspiração-cartao${numero}" class="opcoesDoCartao-radioTipo">
-      <label for="corInspiração-cartao${numero}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #76EF40;" tabindex="0">
+      <input type="radio" name="corDoCartao${numeroDoCartao}" value="#76EF40" id="corInspiração-cartao${numeroDoCartao}" class="opcoesDoCartao-radioTipo">
+      <label for="corInspiração-cartao${numeroDoCartao}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #76EF40;" tabindex="0">
         Inspiração
       </label>
     </div>
@@ -57,7 +57,7 @@ window.adicionarCartao = function adicionarCartao(cartaoObj) { //O Window permit
   })
 
   cartao.on('keydown', function (e) {
-    if (e.target.classList.contains('opcoesDoCartao-opcao') && (e.key === 'Enter')) {
+    if (e.target.classList.contains('opcoesDoCartao-opcao') && (e.key === 'EnPadrãoter')) {
       e.target.click()
     }
   })
