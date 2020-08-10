@@ -1,2 +1,2 @@
 # caelum-javascript-moderno
-Curso js moderno
+Curso js moderno da caelum
